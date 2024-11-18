@@ -1,6 +1,6 @@
 <h1>Pokedex</h1>
 
-This projekt focus was to train how interact with an API.
+This project focus was to train how interact with an API.
 
 <h3>What can i learn in this project?</h3>
 
