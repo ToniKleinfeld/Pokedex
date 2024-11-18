@@ -1,0 +1,134 @@
+* {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.centercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.d-none{
+    display: none !important;
+}
+
+.gap{
+    gap: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background-color: lightgray;
+}
+
+.max-width-header{
+    max-width: 2000px;
+    width: calc(100% - 60px);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px 20px 30px;
+    align-items: center;
+    height: 50px;
+    max-height: 70px;
+
+}
+
+nav img{
+    height: 70px;
+}
+
+.seachBar{
+    max-height: 150px;
+    width: 160px;
+}
+
+.seachBar input{
+    z-index: 4;
+    width: inherit;
+    height: 20px;
+}
+
+.list{
+    position: absolute;
+    overflow-y: hidden;
+    max-height: 69px;
+    padding: 5px 0px 5px 5px;
+    z-index: 5;
+    width: inherit;
+    overflow-y: auto;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 0 0 15px 15px;
+    text-transform: capitalize;
+}
+
+.list li{
+    list-style: circle;
+}
+
+.list a {
+    z-index: 10;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 30px;
+    background-color: lightgray;
+    height: 70px;
+    width: 100%;
+    border-top: 2px solid black;
+}
+
+@media (max-width:450px) {
+    nav img{
+        height: 40px;
+    }
+
+    .seachBar input{
+        z-index: 5;
+        
+        height: 20px;
+    }
+}
+
+@media (max-width:370px) {
+    header{
+        padding: 5px 15px 5px 15px;
+        width: calc(100% - 30px);
+    }
+    .seachBar {
+        z-index: 5;
+        width: 120px;
+        height: 20px;
+    }
+    .max-width-header{
+        padding: 0;
+        width: 100%;
+    }
+}
