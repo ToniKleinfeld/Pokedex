@@ -49,15 +49,23 @@ async function loadPokemonUrlList(){
 }
 
 async function singlePokemonData(){
-  for (let index = countloadedPokemon; index < pokemonData.length; index++) {
-  const pokeArrayIndex = pokemonData[index];
-  countloadedPokemon++;
-  let pokemonDataBase = await getPokemonData(pokeArrayIndex['url']);
 
-  getPokemonStatsAndPic(pokeArrayIndex,pokemonDataBase);
-  getPokemonTypes(pokeArrayIndex,pokemonDataBase);    
-  getPokemonMovesAndAbilitys(pokeArrayIndex,pokemonDataBase);
-}
+  const promises = [];
+  
+  for (let index = countloadedPokemon; index < pokemonData.length; index++) {
+    const pokeArrayIndex = pokemonData[index];
+    countloadedPokemon++;
+    
+    const promise = getPokemonData(pokeArrayIndex['url']).then(pokemonDataBase => {
+      getPokemonStatsAndPic(pokeArrayIndex, pokemonDataBase);
+      getPokemonTypes(pokeArrayIndex, pokemonDataBase);
+      getPokemonMovesAndAbilitys(pokeArrayIndex, pokemonDataBase);
+    });
+    
+    promises.push(promise);
+  }
+
+  await Promise.all(promises);
 }
 
 async function getPokemonData(path) {
